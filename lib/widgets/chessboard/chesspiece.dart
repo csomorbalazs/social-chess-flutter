@@ -12,7 +12,7 @@ class Chesspiece extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformSvg.asset(
-      'assets/' + color.toString() + '_' + type.name + '.svg',
+      'assets/chesspieces/' + color.toString() + '_' + type.name + '.svg',
       width: size,
       height: size,
     );

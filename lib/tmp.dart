@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:chess/chess.dart' as chess;
 
-import 'chessboard/chessboard.dart';
+import 'widgets/chessboard/chessboard.dart';
 
 void main() => runApp(App());
 
