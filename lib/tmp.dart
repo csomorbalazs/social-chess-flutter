@@ -49,9 +49,10 @@ class GamePage extends StatelessWidget {
                         print(
                             "${move.fromAlgebraic} ${move.toAlgebraic} ${move.promotion}");
                       },
-                      onCheck: (chess.Color colorInCheck) {
+                      onGiveCheck: (chess.Color colorInCheck) {
                         print("$colorInCheck is in check");
                       },
+                      onReceiveCheck: (colorInCheck) {},
                       onDraw: () {
                         print("draw");
                       },

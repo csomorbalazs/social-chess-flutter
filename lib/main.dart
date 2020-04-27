@@ -109,10 +109,16 @@ class _GamePageState extends State<GamePage> {
                 })
               });
         },
-        onCheck: (chess.Color colorInCheck) {
+        onGiveCheck: (chess.Color colorInCheck) {
           _topFlushbar?.dismiss();
           _topFlushbar = createTopFlushbar(FontAwesomeIcons.check, "CHECK!",
               "Outstanding move!", Colors.blue[300]);
+          _topFlushbar.show(context);
+        },
+        onReceiveCheck: (chess.Color colorInCheck) {
+          _topFlushbar?.dismiss();
+          _topFlushbar = createTopFlushbar(FontAwesomeIcons.exclamationTriangle,
+              "CHECK!", "Your king is attacked!", Colors.red[600]);
           _topFlushbar.show(context);
         },
         onDraw: () {
@@ -156,6 +162,7 @@ class _GamePageState extends State<GamePage> {
             if (_nextButtonState != NextButtonState.enabled) return;
 
             setState(() {
+              _topFlushbar?.dismiss();
               _nextButtonState = NextButtonState.disabled;
               _game = Api.getRandomGame(PLAYER_ID);
             });

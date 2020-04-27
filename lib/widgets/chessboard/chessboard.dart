@@ -14,7 +14,8 @@ class Chessboard extends StatefulWidget {
   final bool disableMovesAfterMove;
   final chess.Color userSideColor;
   final Function(chess.Move move) onMove;
-  final Function(chess.Color colorInCheck) onCheck;
+  final Function(chess.Color colorInCheck) onGiveCheck;
+  final Function(chess.Color colorInCheck) onReceiveCheck;
   final Function() onDraw;
 
   final Function(chess.Color winnerColor) onCheckmate;
@@ -29,7 +30,8 @@ class Chessboard extends StatefulWidget {
       this.disableMovesAfterMove = false,
       this.userSideColor,
       @required this.onMove,
-      @required this.onCheck,
+      @required this.onGiveCheck,
+      @required this.onReceiveCheck,
       @required this.onDraw,
       @required this.onCheckmate});
 
@@ -47,10 +49,15 @@ class _ChessboardState extends State<Chessboard> {
   @override
   void initState() {
     game = chess.Chess.fromFEN(widget.initialFEN);
-    if (game.in_check) widget.onCheck(game.turn);
     userSideColor = widget.userSideColor ?? game.turn;
 
+    WidgetsBinding.instance.addPostFrameCallback(callOnReceiveCheck);
+
     super.initState();
+  }
+
+  void callOnReceiveCheck(_) {
+    if (game.in_check) widget.onReceiveCheck(game.turn);
   }
 
   @override
@@ -169,7 +176,7 @@ class _ChessboardState extends State<Chessboard> {
       widget.onMove(game.history.last.move);
 
       if (game.in_check && !game.in_checkmate) {
-        widget.onCheck(game.turn);
+        widget.onGiveCheck(game.turn);
       }
 
       if (game.in_draw) {
