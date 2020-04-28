@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:chess/chess.dart' as chess;
-import 'package:flushbar/flushbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:socialchess/widgets/chessboard/chessboard.dart';
 import 'package:socialchess/models/game_dto.dart';
 import 'package:socialchess/services/api.dart';
 import 'package:socialchess/models/next_button_state.dart';
+import 'package:socialchess/widgets/top_flushbar.dart';
 
 void main() => runApp(App());
 
@@ -111,29 +111,42 @@ class _GamePageState extends State<GamePage> {
         },
         onGiveCheck: (chess.Color colorInCheck) {
           _topFlushbar?.dismiss();
-          _topFlushbar = createTopFlushbar(FontAwesomeIcons.check, "CHECK!",
-              "Outstanding move!", Colors.blue[300]);
+          _topFlushbar = TopFlushbar(
+            FontAwesomeIcons.check,
+            "CHECK!",
+            "Outstanding move!",
+            Colors.blue[300],
+          );
           _topFlushbar.show(context);
         },
         onReceiveCheck: (chess.Color colorInCheck) {
           _topFlushbar?.dismiss();
-          _topFlushbar = createTopFlushbar(FontAwesomeIcons.exclamationTriangle,
-              "CHECK!", "Your king is attacked!", Colors.red[600]);
+          _topFlushbar = TopFlushbar(
+            FontAwesomeIcons.exclamationTriangle,
+            "CHECK!",
+            "Your king is attacked!",
+            Colors.red[600],
+          );
           _topFlushbar.show(context);
         },
         onDraw: () {
           _topFlushbar?.dismiss();
-          _topFlushbar = createTopFlushbar(
+          _topFlushbar = TopFlushbar(
               FontAwesomeIcons.solidFlag,
               "DRAW!",
               "This game is a draw. Well played!",
-              Theme.of(context).primaryColor);
+            Theme.of(context).primaryColor,
+          );
           _topFlushbar.show(context);
         },
         onCheckmate: (chess.Color winnerColor) {
           _topFlushbar?.dismiss();
-          _topFlushbar = createTopFlushbar(FontAwesomeIcons.trophy,
-              "CHECKMATE!", "You won this game. Well played!", Colors.amber);
+          _topFlushbar = TopFlushbar(
+            FontAwesomeIcons.trophy,
+            "CHECKMATE!",
+            "You won this game. Well played!",
+            Colors.amber,
+          );
           _topFlushbar.show(context);
         },
       ),
@@ -233,42 +246,4 @@ class _GamePageState extends State<GamePage> {
       ),
     );
   }
-}
-
-Flushbar createTopFlushbar(
-    IconData icon, String title, String message, Color backgroundColor,
-    [Duration duration]) {
-  return Flushbar(
-    flushbarPosition: FlushbarPosition.TOP,
-    flushbarStyle: FlushbarStyle.GROUNDED,
-    titleText: Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Text(
-        title,
-        style: TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-      ),
-    ),
-    messageText: Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Text(
-        message,
-        style: TextStyle(color: Colors.white, fontSize: 15),
-      ),
-    ),
-    icon: Padding(
-      padding: const EdgeInsets.only(left: 18),
-      child: FaIcon(
-        icon,
-        size: 30,
-        color: Colors.white,
-      ),
-    ),
-    shouldIconPulse: false,
-    backgroundColor: backgroundColor,
-    duration: duration,
-    animationDuration: Duration(milliseconds: 300),
-    forwardAnimationCurve: Curves.bounceIn,
-    reverseAnimationCurve: Curves.linear,
-  );
 }
