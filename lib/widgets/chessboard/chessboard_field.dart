@@ -137,8 +137,8 @@ class _ChessboardFieldState extends State<ChessboardField> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('Choose promotion'),
+        return AlertDialog(
+          title: Text('Choose promotion'),
           content: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[

@@ -9,7 +9,7 @@ class Api {
 
   static Future<GameDto> getRandomGame(String playerId) async {
     final response = await http
-        .get(new Uri.https(API_BASE_URL, '/game', {"player": "$playerId"}));
+        .get(Uri.https(API_BASE_URL, '/game', {"player": "$playerId"}));
 
     if (response.statusCode == 200) {
       return GameDto.fromJson(json.decode(response.body));
@@ -32,7 +32,7 @@ class Api {
     }
 
     var response =
-        await http.post(new Uri.https(API_BASE_URL, '/move', queryParameters));
+        await http.post(Uri.https(API_BASE_URL, '/move', queryParameters));
 
     if (response.statusCode == 200) {
       return true;
