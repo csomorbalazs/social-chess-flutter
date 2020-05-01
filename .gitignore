@@ -9,6 +9,8 @@
 .buildlog/
 .history
 .svn/
+.firebase/
+lib/generated_plugin_registrant.dart
 
 # IntelliJ related
 *.iml
