@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="social_chess">
+  <meta name="google-signin-client_id"
+    content="543548569571-cfp8pl07ak5s5qun6tjsiueptm45c9p9.apps.googleusercontent.com" />
+
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
   <title>social_chess</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
@@ -29,5 +33,31 @@
     }
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyC2oIRJddq5ZnGXaHJYTT4BQQ4UR1cp9hM",
+      authDomain: "social-chess-3cce3.firebaseapp.com",
+      databaseURL: "https://social-chess-3cce3.firebaseio.com",
+      projectId: "social-chess-3cce3",
+      storageBucket: "social-chess-3cce3.appspot.com",
+      messagingSenderId: "543548569571",
+      appId: "1:543548569571:web:fb144f535808a17d7292d6",
+      measurementId: "G-V3EE2ZRKMN"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  </script>
 </body>
+
 </html>

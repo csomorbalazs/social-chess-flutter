@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "543548569571",
+    "firebase_url": "https://social-chess-3cce3.firebaseio.com",
+    "project_id": "social-chess-3cce3",
+    "storage_bucket": "social-chess-3cce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543548569571:android:93cf9a9702396a6d7292d6",
+        "android_client_info": {
+          "package_name": "hu.csomorbalazs.socialchess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543548569571-300vhh74kmm61bs9nc4ovrvjrv2rgq04.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.csomorbalazs.socialchess",
+            "certificate_hash": "dd01f84d5375be8ff8228f3aa5adbb5a26c832bb"
+          }
+        },
+        {
+          "client_id": "543548569571-cfp8pl07ak5s5qun6tjsiueptm45c9p9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZXyIKiOYh4e8nyriMRBTlO-2PUKUVASk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543548569571-cfp8pl07ak5s5qun6tjsiueptm45c9p9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
