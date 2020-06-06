@@ -29,11 +29,11 @@ class Chessboard extends StatefulWidget {
       this.enableMoves = true,
       this.disableMovesAfterMove = false,
       this.userSideColor,
-      @required this.onMove,
-      @required this.onGiveCheck,
-      @required this.onReceiveCheck,
-      @required this.onDraw,
-      @required this.onCheckmate});
+      this.onMove,
+      this.onGiveCheck,
+      this.onReceiveCheck,
+      this.onDraw,
+      this.onCheckmate});
 
   @override
   _ChessboardState createState() => _ChessboardState();
@@ -57,7 +57,8 @@ class _ChessboardState extends State<Chessboard> {
   }
 
   void callOnReceiveCheck(_) {
-    if (game.in_check) widget.onReceiveCheck(game.turn);
+    if (widget.onReceiveCheck != null && game.in_check)
+      widget.onReceiveCheck(game.turn);
   }
 
   @override
